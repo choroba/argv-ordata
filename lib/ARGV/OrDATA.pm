@@ -21,7 +21,7 @@ sub import {
     warn $package;
     {   no strict 'refs';
         no warnings 'once';
-        *ARGV = *main::DATA unless @ARGV || ! -t;
+        *ARGV = *{$package . '::DATA'} unless @ARGV || ! -t;
     }
 }
 
@@ -39,6 +39,14 @@ coming from STDIN and there are no arguments.
     __DATA__
     You'll see this if you don't redirect something to the script
     or you don't specify a filename on the command line.
+
+You can also specify which package's DATA should be read instead of
+the caller's:
+
+    use My::Module;
+    use ARGV::OrDATA 'My::Module';
+
+    while (<>) {  # This reads from My/Module.pm's DATA section.
 
 =head1 EXPORT
 

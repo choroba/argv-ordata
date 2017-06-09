@@ -6,6 +6,8 @@ README
 t/00-data.t
 t/01-file.t
 t/02-stdin.t
+t/03-package.t
 t/input.txt
+t/My.pm
 t/pipe.pl
 t/script.pl
