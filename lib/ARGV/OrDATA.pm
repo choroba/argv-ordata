@@ -44,8 +44,8 @@ sub unimport {
     }
 
     __DATA__
-    You'll see this if you don't redirect something to the script
-    or you don't specify a filename on the command line.
+    You'll see this if you don't redirect something to the script's
+    STDIN or you don't specify a filename on the command line.
 
 =head1 DESCRIPTION
 
