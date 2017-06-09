@@ -18,11 +18,21 @@ our $VERSION = '0.001';
 
 sub import {
     my ($package) = $_[1] || caller;
-    warn $package;
     {   no strict 'refs';
         no warnings 'once';
+        *ORIG = *ARGV;
         *ARGV = *{$package . '::DATA'} unless @ARGV || ! -t;
     }
+}
+
+
+sub unimport {
+    my $package = shift;
+    *ARGV = *ORIG;
+    {   no strict 'refs';
+        delete ${$package . '::'}{ORIG};
+    }
+    undef *ORIG;
 }
 
 =head1 SYNOPSIS
