@@ -15,7 +15,7 @@ is scalar <>, "data 1\n", 'read line 1 from data';
 @ARGV = $file;
 is scalar <>, "data 2\n", 'changes to @ARGV ignored';
 
-'ARGV::OrDATA'->unimport();
+'ARGV::OrDATA'->unimport;
 @ARGV = $file;
 is scalar <>, "file 1\n", 'unimport works';
 

@@ -37,9 +37,6 @@ sub unimport {
 
 =head1 SYNOPSIS
 
-Tell your script it should use the DATA section if there's no input
-coming from STDIN and there are no arguments.
-
     use ARGV::OrDATA;
 
     while (<>) {
@@ -50,6 +47,11 @@ coming from STDIN and there are no arguments.
     You'll see this if you don't redirect something to the script
     or you don't specify a filename on the command line.
 
+=head1 DESCRIPTION
+
+Tell your script it should use the DATA section if there's no input
+coming from STDIN and there are no arguments.
+
 You can also specify which package's DATA should be read instead of
 the caller's:
 
@@ -58,13 +60,28 @@ the caller's:
 
     while (<>) {  # This reads from My/Module.pm's DATA section.
 
+To restore the old behaviour, you can call the C<unimport> method.
+
+    use ARGV::OrDATA;
+
+    my $from_data = <>;
+
+    @ARGV = 'file1.txt';  # Ignored.
+
+    'ARGV::OrDATA'->unimport;
+
+    @ARGV = 'file2.txt';  # Works.
+
+    my $from_file2 = <>;
+
+
 =head1 EXPORT
 
 Nothing.
 
 =head1 AUTHOR
 
-E. Choroba, C<< <choroba at matfyz.cz> >>
+E. Choroba, C<< <choroba at cpan.org> >>
 
 =head1 BUGS
 
