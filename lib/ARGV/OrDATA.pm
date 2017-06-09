@@ -74,6 +74,10 @@ To restore the old behaviour, you can call the C<unimport> method.
 
     my $from_file2 = <>;
 
+Calling C<import> after C<unimport> would restore the DATA handle, but
+B<wouldn't rewind it>, i.e. it would continue from where you stopped
+(see t/04-unimport).
+
 
 =head1 EXPORT
 

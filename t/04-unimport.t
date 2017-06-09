@@ -2,7 +2,7 @@
 use warnings;
 use strict;
 
-use Test::More tests => 3;
+use Test::More tests => 4;
 
 use FindBin;
 
@@ -19,6 +19,8 @@ is scalar <>, "data 2\n", 'changes to @ARGV ignored';
 @ARGV = $file;
 is scalar <>, "file 1\n", 'unimport works';
 
+'ARGV::OrDATA'->import;
+is scalar <>, "data 3\n", 'switching back to data';
 
 __DATA__
 data 1
