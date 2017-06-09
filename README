@@ -30,17 +30,11 @@ perldoc command.
 
 You can also look for information at:
 
-    RT, CPAN's request tracker (report bugs here)
-        http://rt.cpan.org/NoAuth/Bugs.html?Dist=ARGV-OrDATA
+    MetaCPAN
+        https://metacpan.org/pod/ARGV::OrDATA
 
-    AnnoCPAN, Annotated CPAN documentation
-        http://annocpan.org/dist/ARGV-OrDATA
-
-    CPAN Ratings
-        http://cpanratings.perl.org/d/ARGV-OrDATA
-
-    Search CPAN
-        http://search.cpan.org/dist/ARGV-OrDATA/
+    GitHub, the distribution's git repository (inludes issues)
+        http://github.com/choroba/argv-ordata
 
 
 LICENSE AND COPYRIGHT
@@ -51,7 +45,7 @@ This program is free software; you can redistribute it and/or modify it
 under the terms of the the Artistic License (2.0). You may obtain a
 copy of the full license at:
 
-L<http://www.perlfoundation.org/artistic_license_2_0>
+http://www.perlfoundation.org/artistic_license_2_0
 
 Any use, modification, and distribution of the Standard or Modified
 Versions is governed by this Artistic License. By using, modifying or

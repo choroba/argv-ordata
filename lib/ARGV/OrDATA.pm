@@ -6,48 +6,43 @@ use warnings;
 
 =head1 NAME
 
-ARGV::OrDATA - The great new ARGV::OrDATA!
+ARGV::OrDATA - Let the diamond operator read from DATA if there's no ARGV
 
 =head1 VERSION
 
-Version 0.01
+Version 0.001
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.001';
 
+sub import {
+    my ($package) = $_[1] || caller;
+    warn $package;
+    {   no strict 'refs';
+        no warnings 'once';
+        *ARGV = *main::DATA unless @ARGV || ! -t;
+    }
+}
 
 =head1 SYNOPSIS
 
-Quick summary of what the module does.
-
-Perhaps a little code snippet.
+Tell your script it should use the DATA section if there's no input
+coming from STDIN and there are no arguments.
 
     use ARGV::OrDATA;
 
-    my $foo = ARGV::OrDATA->new();
-    ...
+    while (<>) {
+        print;
+    }
+
+    __DATA__
+    You'll see this if you don't redirect something to the script
+    or you don't specify a filename on the command line.
 
 =head1 EXPORT
 
-A list of functions that can be exported.  You can delete this section
-if you don't export anything, such as for a purely object-oriented module.
-
-=head1 SUBROUTINES/METHODS
-
-=head2 function1
-
-=cut
-
-sub function1 {
-}
-
-=head2 function2
-
-=cut
-
-sub function2 {
-}
+Nothing.
 
 =head1 AUTHOR
 
@@ -55,12 +50,8 @@ E. Choroba, C<< <choroba at matfyz.cz> >>
 
 =head1 BUGS
 
-Please report any bugs or feature requests to C<bug-argv-ordata at rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=ARGV-OrDATA>.  I will be notified, and then you'll
-automatically be notified of progress on your bug as I make changes.
-
-
-
+Please report any bugs or feature requests to the GitHub repository at
+L<https://github.com/choroba/argv-ordata>.
 
 =head1 SUPPORT
 
@@ -73,21 +64,13 @@ You can also look for information at:
 
 =over 4
 
-=item * RT: CPAN's request tracker (report bugs here)
+=item * MetaCPAN
 
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=ARGV-OrDATA>
+L<http://mcpan.org/pod/ARGV-OrDATA>
 
-=item * AnnoCPAN: Annotated CPAN documentation
+=item * GitHub
 
-L<http://annocpan.org/dist/ARGV-OrDATA>
-
-=item * CPAN Ratings
-
-L<http://cpanratings.perl.org/d/ARGV-OrDATA>
-
-=item * Search CPAN
-
-L<http://search.cpan.org/dist/ARGV-OrDATA/>
+L<https://github.com/choroba/argv-ordata>
 
 =back
 
@@ -138,4 +121,4 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =cut
 
-1; # End of ARGV::OrDATA
+__PACKAGE__
