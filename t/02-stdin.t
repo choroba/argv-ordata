@@ -4,7 +4,7 @@ use strict;
 
 use FindBin;
 
-open my $PIPE, '|-', "$FindBin::Bin/pipe.pl" or die $!;
+open my $PIPE, '|-', $^X, "$FindBin::Bin/pipe.pl" or die $!;
 print {$PIPE} << '__PIPE__';
 pipe 1
 pipe 2

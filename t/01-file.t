@@ -6,7 +6,7 @@ use Test::More tests => 3;
 
 use FindBin;
 
-open my $PIPE, '-|', "$FindBin::Bin/script.pl", "$FindBin::Bin/input.txt" or die $!;
+open my $PIPE, '-|', $^X, "$FindBin::Bin/script.pl", "$FindBin::Bin/input.txt" or die $!;
 
 while (<$PIPE>) {
     is $_, "file $.\n", "Read line $. from file";
