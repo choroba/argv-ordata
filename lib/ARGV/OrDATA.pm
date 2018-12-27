@@ -76,8 +76,13 @@ To restore the old behaviour, you can call the C<unimport> method.
 
 Calling C<import> after C<unimport> would restore the DATA handle, but
 B<wouldn't rewind it>, i.e. it would continue from where you stopped
-(see t/04-unimport).
+(see t/04-unimport.t).
 
+=head2 Why?
+
+I use this technique when solving programming contests. The sample
+input is usually small and I don't want to waste time by saving it
+into a file.
 
 =head1 EXPORT
 
