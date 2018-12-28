@@ -10,11 +10,11 @@ ARGV::OrDATA - Let the diamond operator read from DATA if there's no ARGV
 
 =head1 VERSION
 
-Version 0.002
+Version 0.003
 
 =cut
 
-our $VERSION = '0.002';
+our $VERSION = '0.003';
 
 sub import {
     my ($package) = $_[1] || caller;
