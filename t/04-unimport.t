@@ -8,19 +8,24 @@ use FindBin;
 
 use ARGV::OrDATA;
 
-my $file = "$FindBin::Bin/input.txt";
+SKIP: {
+    skip "Can't run the test when stdin is not the terminal", 4
+        unless -t;
 
-is scalar <>, "data 1\n", 'read line 1 from data';
+    my $file = "$FindBin::Bin/input.txt";
 
-@ARGV = $file;
-is scalar <>, "data 2\n", 'changes to @ARGV ignored';
+    is scalar <>, "data 1\n", 'read line 1 from data';
 
-'ARGV::OrDATA'->unimport;
-@ARGV = $file;
-is scalar <>, "file 1\n", 'unimport works';
+    @ARGV = $file;
+    is scalar <>, "data 2\n", 'changes to @ARGV ignored';
 
-'ARGV::OrDATA'->import;
-is scalar <>, "data 3\n", 'switching back to data';
+    'ARGV::OrDATA'->unimport;
+    @ARGV = $file;
+    is scalar <>, "file 1\n", 'unimport works';
+
+    'ARGV::OrDATA'->import;
+    is scalar <>, "data 3\n", 'switching back to data';
+}
 
 __DATA__
 data 1
