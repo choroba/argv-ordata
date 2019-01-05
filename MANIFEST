@@ -12,3 +12,7 @@ t/input.txt
 t/My.pm
 t/pipe.pl
 t/script.pl
+xt/changes.t
+xt/manifest.t
+xt/pod-coverage.t
+xt/pod.t

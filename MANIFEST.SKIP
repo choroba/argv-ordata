@@ -2,6 +2,5 @@
 \.travis.yml
 \.git
 .*~
-xt/
 MANIFEST\.SKIP
 ARGV-OrDATA-.*\.tar\.gz
