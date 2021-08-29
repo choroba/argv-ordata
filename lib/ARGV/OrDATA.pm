@@ -59,6 +59,8 @@ the caller's:
     use ARGV::OrDATA 'My::Module';
 
     while (<>) {  # This reads from My/Module.pm's DATA section.
+        print;
+    }
 
 To restore the old behaviour, you can call the C<unimport> method.
 
