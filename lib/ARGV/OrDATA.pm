@@ -111,11 +111,11 @@ though:
 
 =item ARGV::OrDATA::is_using_argv()
 
-Returns 0 when ARGV reads from DATA, 0 otherwise.
+Returns 0 when ARGV reads from DATA, 1 otherwise.
 
 =item ARGV::OrDATA::is_using_data()
 
-Returns 1 when ARGV reads from DATA, 1 otherwise.
+Returns 1 when ARGV reads from DATA, 0 otherwise.
 
 =back
 
